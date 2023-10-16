@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmxdi5qg7ff0c"]
+
+[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_nyckg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc1pw"]
+radius = 22.0227
+
+[node name="Projectile" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_nyckg")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1, -27, 28, -1, 1, 24, -26, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pc1pw")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

@@ -1,7 +1,11 @@
 This file contains a list of the elements needed for our game design. The list is ordered from features that are most essential to game design to features that can be implemented at the end of development if time permits.
 Overall Game Design Features:
-  1. Main Menu
-  2. Settings Menu
+  1. Main Menu - The main menu will consist of three options: Start Game, Settings, Exit Game (Other options such as a leaderboard may be included in the final design if time permits)
+  2. Settings Menu - The Settings Menu will consist of the following: 
+        i) A sound option that lets the user control the master volume and sound effects
+        ii) An Asteroid/Enemy Difficulty Slider
+        iii) An option to disable/enable powerups
+        iv) Other options if time permits
   3. Player Design - The user will control a spaceship used to evade or destroy incoming asteroids/enemies.
   4. Player Movement - The user will be able to control which way the spaceship faces. The user can only move in the direction that the ship is facing.
   5. Player Projectile Firing - The user will be able to fire projectiles at asteroids/enemies.

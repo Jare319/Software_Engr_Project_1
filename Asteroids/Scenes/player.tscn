@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2r0nj"]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["MoveObjects"]]
 position = Vector2(104, 116)
 rotation = -1.5708
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_2r0nj")
 max_speed = 2000
 accel_coeff = 1000
@@ -24,6 +26,7 @@ rotation = -1.5708
 polygon = PackedVector2Array(0, 0, 8, 3, 16, 0, 8, 17)
 
 [node name="Shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.35
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]

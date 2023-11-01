@@ -43,3 +43,7 @@ func _process(delta):
 	
 func _on_shoot_cooldown_timeout():
 	on_cooldown = false;
+
+func _on_area_entered(area):
+	self.hide()
+	get_parent().call_deferred("game_over");

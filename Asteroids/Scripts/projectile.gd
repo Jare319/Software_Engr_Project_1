@@ -13,3 +13,8 @@ func _process(delta):
 
 func _on_lifetime_timeout():
 	queue_free();
+
+func _on_area_entered(area):
+	$CollisionShape2D.set_deferred("disabled",true);
+	hide();
+	

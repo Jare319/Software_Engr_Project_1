@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://2f25crfi767l"]
+
+[ext_resource type="Script" path="res://Scripts/startmenu.gd" id="1_cyhdl"]
+[ext_resource type="Texture2D" uid="uid://c75kuf8vq7acg" path="res://Textures/Menu Art.png" id="2_b12am"]
+[ext_resource type="Theme" uid="uid://b553x4nonmqoj" path="res://Assets/Main_menu_text.tres" id="3_qf2dg"]
+[ext_resource type="Texture2D" uid="uid://8seof5yexl81" path="res://Textures/controls.jpg" id="4_dmaxw"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cyhdl")
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 205.0
+offset_right = 1351.0
+offset_bottom = 470.0
+scale = Vector2(0.86, 0.86)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("2_b12am")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = 117.0
+offset_right = 121.5
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+theme = ExtResource("3_qf2dg")
+theme_override_font_sizes/font_size = 20
+text = "[      START GAME      ]"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qf2dg")
+theme_override_font_sizes/font_size = 20
+text = "[     HOW TO PLAY     ]"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+theme = ExtResource("3_qf2dg")
+theme_override_font_sizes/font_size = 20
+text = "[             EXIT             ]"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -274.0
+offset_right = 308.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dmaxw")
+expand_mode = 1
+
+[node name="ReturnButton" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = 456.0
+offset_right = 61.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qf2dg")
+theme_override_font_sizes/font_size = 25
+text = "Return"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="TextureRect/ReturnButton" to="." method="_on_return_button_pressed"]

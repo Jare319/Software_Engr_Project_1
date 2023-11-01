@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhaxl6p7ypop"]
+
+[ext_resource type="PackedScene" uid="uid://77o8ynb63kp6" path="res://Scenes/player.tscn" id="1_gr07n"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_lo2dl"]
+[ext_resource type="PackedScene" uid="uid://ds2ml6uav5xsp" path="res://Scenes/asteroid.tscn" id="2_iocrt"]
+[ext_resource type="PackedScene" uid="uid://bmxdi5qg7ff0c" path="res://Scenes/projectile.tscn" id="3_rda6u"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lo2dl")
+asteroid_scene = ExtResource("2_iocrt")
+projectile_scene = ExtResource("3_rda6u")
+
+[node name="Player" parent="." instance=ExtResource("1_gr07n")]
+position = Vector2(596, 314)
+max_speed = 1500
+accel_coeff = 600
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
